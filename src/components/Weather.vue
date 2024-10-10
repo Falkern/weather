@@ -38,7 +38,7 @@ export default defineComponent({
     const weather = ref<WeatherData | null>(null);
     const errorMessage = ref('');
     const loading = ref(false);
-    const debounceTimeout = ref<ReturnType<typeof setTimeout> | null>(null); // For debounce
+    const debounceTimeout = ref<ReturnType<typeof setTimeout> | null>(null);
 
     const fetchWeather = async () => {
       if (city.value.trim() === '') {
@@ -46,7 +46,7 @@ export default defineComponent({
         return;
       }
 
-      const apiKey = import.meta.env.VITE_OPENWEATHER_API_KEY; // Use environment variable
+      const apiKey = import.meta.env.VITE_OPENWEATHER_API_KEY;
       loading.value = true;
       errorMessage.value = '';
       try {
@@ -73,7 +73,7 @@ export default defineComponent({
       if (debounceTimeout.value) {
         clearTimeout(debounceTimeout.value);
       }
-      debounceTimeout.value = setTimeout(fetchWeather, 300); // Debounce for 300ms
+      debounceTimeout.value = setTimeout(fetchWeather, 300); 
     };
 
     const iconUrl = computed(() => {
@@ -107,7 +107,7 @@ export default defineComponent({
   color: blue;
 }
 .weather-info img {
-  width: 100px; /* Set the desired width */
-  height: auto; /* Maintain aspect ratio */
+  width: 100px; 
+  height: auto;
 }
 </style>
