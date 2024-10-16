@@ -1,6 +1,7 @@
 <template>
   <div class="weather-app">
     <h1>What's My Weather</h1>
+    <input v-model="city" @keyup.enter="debounceFetchWeather" placeholder="Enter city" />
     <button @click="debounceFetchWeather">Search</button>
     <div v-if="loading" class="loading">Loading...</div>
     <div v-if="errorMessage" class="error">{{ errorMessage }}</div>
