@@ -1,11 +1,6 @@
 <template>
   <div class="weather-app">
     <h1>What's My Weather</h1>
-    <input
-      v-model="city"
-      @keyup.enter="debounceFetchWeather"
-      placeholder="Enter city"
-    />
     <button @click="debounceFetchWeather">Search</button>
     <div v-if="loading" class="loading">Loading...</div>
     <div v-if="errorMessage" class="error">{{ errorMessage }}</div>
@@ -78,7 +73,7 @@ export default defineComponent({
       if (debounceTimeout.value) {
         clearTimeout(debounceTimeout.value);
       }
-      debounceTimeout.value = setTimeout(fetchWeather, 300); 
+      debounceTimeout.value = setTimeout(fetchWeather, 300);
     };
 
     const iconUrl = computed(() => {
@@ -105,16 +100,20 @@ export default defineComponent({
 .weather-info {
   margin-top: 20px;
 }
+
 .error {
   color: red;
 }
+
 .loading {
   color: blue;
 }
+
 .weather-info img {
-  width: 100px; 
+  width: 100px;
   height: auto;
 }
+
 .footer {
   text-align: center;
   margin-top: 20px;
@@ -132,6 +131,7 @@ export default defineComponent({
   from {
     text-shadow: 0 0 1px #ffffff, 0 0 2px #ffffff, 0 0 3px #ffffff, 0 0 4px #ffffff, 0 0 5px #ffffff;
   }
+
   to {
     text-shadow: 0 0 2px #d2d2d2, 0 0 4px #d2d2d2, 0 0 6px #d2d2d2, 0 0 8px #d2d2d2, 0 0 10px #d2d2d2;
   }
